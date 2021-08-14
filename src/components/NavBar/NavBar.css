@@ -1,0 +1,12 @@
+.encabezado{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 10%;
+    background-color: rgb(224, 51, 86);
+    color: white;
+}
+
+.encabezado a{
+    text-decoration: none;
+    color: white;
+}
