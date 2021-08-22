@@ -1,6 +1,10 @@
-.bienvenida{
+.bienvenida h2{
     display: flex;
     justify-content: center;
     padding: 1rem;
-
 }
+
+.bienvenida p{
+    display: flex;
+    justify-content: center;}
+
