@@ -1,0 +1,14 @@
+.ppal h3, p{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.ppal h3{
+    color: crimson;
+}
+
+.ppal img {
+    margin: auto;
+    display: block;
+}

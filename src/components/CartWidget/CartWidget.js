@@ -5,7 +5,7 @@ export const CartWidget = () => {
 
     return (
         <div>
-            <p>Icon</p>
+            {/* <p></p> */}
         </div>
         )
 
