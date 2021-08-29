@@ -1,18 +1,31 @@
 import React from 'react'
 import './NavBar.css'
 import {CartWidget} from "../CartWidget/CartWidget"
+import {Link} from "react-router-dom";
+import { Dropdown } from 'react-bootstrap';
+
+
 
 export const NavBar = () => {
 
     return (
     
     <header className="encabezado">
-            <h2>Logo tienda</h2>
+            <h2><Link to={"/"}>Keep Playing </Link></h2>
             <nav>
-                <a href="#">Productos </a>
-                <a href="#">Contacto </a>
+                <Link to={"/nosotros"}>Nosotros </Link>
+                <Link to={"/contacto"}>Contacto </Link>
                 <CartWidget/>
             </nav>
+            <Dropdown>
+                    <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                        Productos
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="bg-dark text-white">
+                        <Dropdown.Item><Link to={"/category/RPG"}>RPG</Link></Dropdown.Item>
+                        <Dropdown.Item><Link to={"/category/Accion"}>Accion</Link></Dropdown.Item>
+                    </Dropdown.Menu>
+            </Dropdown>
     </header>
 
     )
