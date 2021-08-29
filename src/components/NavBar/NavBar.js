@@ -1,6 +1,6 @@
 import React from 'react'
 import './NavBar.css'
-import {CartWidget} from "../CartWidget/CartWidget"
+import { CartWidget } from '../CartWidget/CartWidget'
 import {Link} from "react-router-dom";
 import { Dropdown } from 'react-bootstrap';
 
@@ -15,7 +15,6 @@ export const NavBar = () => {
             <nav>
                 <Link to={"/nosotros"}>Nosotros </Link>
                 <Link to={"/contacto"}>Contacto </Link>
-                <CartWidget/>
             </nav>
             <Dropdown>
                     <Dropdown.Toggle variant="dark" id="dropdown-basic">
@@ -26,6 +25,8 @@ export const NavBar = () => {
                         <Dropdown.Item><Link to={"/category/Accion"}>Accion</Link></Dropdown.Item>
                     </Dropdown.Menu>
             </Dropdown>
+            <CartWidget/>
+
     </header>
 
     )

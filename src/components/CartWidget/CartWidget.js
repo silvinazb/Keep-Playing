@@ -1,12 +1,13 @@
-import React from 'react'
-import './CartWidget.css'
+import {FaShoppingCart} from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 export const CartWidget = () => {
 
     return (
-        <div>
-            {/* <p></p> */}
-        </div>
-        )
-
+        <Link to="/cart">
+            <div className="cart-widget">
+                    <FaShoppingCart/>
+            </div>
+        </Link>
+    )
 }
