@@ -3,7 +3,7 @@ import'./styles/styles.css';
 import {ItemListContainer} from './components/ItemListContainer/ItemListContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import { CartWidget } from './components/CartWidget/CartWidget';
+import { CartCheckout } from './components/CartCheckout/CartCheckout';
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { cart } from './context/cart';
 import { useState } from 'react';
@@ -56,8 +56,7 @@ const vaciarCarrito = () =>{
       </Route>
 
       <Route exact path="/cart">
-        <h1>Carrito</h1>
-        <CartWidget/>
+        <CartCheckout/>
       </Route>
 
       </Switch>
