@@ -6,7 +6,6 @@ import { ItemList } from './ItemList'
 
 export const ItemListContainer = () => {
 
-
     const { filtro } = useParams ()
 
     

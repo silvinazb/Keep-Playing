@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {Link} from "react-router-dom";
+import { cart } from '../../context/cart';
 import { Counter } from '../Counter/Counter';
 
 export const ItemDetail = ({category, nombre, precio, img, stock}) => {
-        
+    
+    const {agregarAlCarrito} = useContext(cart)
+
     const [cantidad, setCantidad] = useState(1)
 
-    // const agregarAlCarrito = () =>{
-    //     console.log({
-    //         category, nombre, precio, img, stock
-    //     })
-    // }
+    const handleAddCart = () => {
+        agregarAlCarrito({
+            category, nombre, precio, img, stock
+        })
+    }
 
     return (
         <div>
@@ -23,7 +26,7 @@ export const ItemDetail = ({category, nombre, precio, img, stock}) => {
             <p>{category}</p>
             <img src={img} alt={nombre}/>
             <p>${precio}</p>
-            <Counter max={stock} cantidad={cantidad} setCantidad={setCantidad}/>
+            <Counter max={stock} cantidad={cantidad} setCantidad={setCantidad} agregar={handleAddCart}/>
             <Link to={`/category/${category}`}>Ver otros</Link>
             </div>
         </div>

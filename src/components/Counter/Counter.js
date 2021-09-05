@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-
 export const Counter = ({max, cantidad, setCantidad, agregar}) =>{
 
 
@@ -22,7 +20,7 @@ export const Counter = ({max, cantidad, setCantidad, agregar}) =>{
             <p>{cantidad}</p>
             <button className="btn btn-danger mx-1" onClick={handleSumar}>+</button>
         </div>
-        {/* <button className="btn btn-danger mt-2" onClick={agregar}>Agregar al carrito</button> */}
+        <button className="btn btn-danger mt-2" onClick={agregar}>Agregar al carrito</button>
         </>
     )
 }
