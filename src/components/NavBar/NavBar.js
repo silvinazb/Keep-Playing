@@ -12,10 +12,6 @@ export const NavBar = () => {
     
     <header className="encabezado">
             <h2><Link to={"/"}>Keep Playing </Link></h2>
-            {/* <nav>
-                <Link to={"/nosotros"}>Nosotros </Link>
-                <Link to={"/contacto"}>Contacto </Link>
-            </nav> */}
             <Dropdown>
                     <Dropdown.Toggle variant="dark" id="dropdown-basic">
                         Productos

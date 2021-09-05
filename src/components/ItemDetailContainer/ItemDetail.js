@@ -11,7 +11,7 @@ export const ItemDetail = ({category, nombre, precio, img, stock}) => {
 
     const handleAddCart = () => {
         agregarAlCarrito({
-            category, nombre, precio, img, stock
+            category, nombre, precio, img, stock, cantidad
         })
     }
 
@@ -26,7 +26,10 @@ export const ItemDetail = ({category, nombre, precio, img, stock}) => {
             <p>{category}</p>
             <img src={img} alt={nombre}/>
             <p>${precio}</p>
-            <Counter max={stock} cantidad={cantidad} setCantidad={setCantidad} agregar={handleAddCart}/>
+            <Counter max={stock} 
+            cantidad={cantidad} 
+            setCantidad={setCantidad} 
+            agregar={handleAddCart}/>
             <Link to={`/category/${category}`}>Ver otros</Link>
             </div>
         </div>

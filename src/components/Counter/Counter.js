@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const Counter = ({max, cantidad, setCantidad, agregar}) =>{
 
 
@@ -19,8 +21,8 @@ export const Counter = ({max, cantidad, setCantidad, agregar}) =>{
             <button className="btn btn-danger mx-1" onClick={handleRestar} >-</button>
             <p>{cantidad}</p>
             <button className="btn btn-danger mx-1" onClick={handleSumar}>+</button>
+            <button className="btn btn-danger mt-2" onClick={agregar}>Agregar al carrito</button>
         </div>
-        <button className="btn btn-danger mt-2" onClick={agregar}>Agregar al carrito</button>
         </>
     )
 }

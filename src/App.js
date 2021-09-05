@@ -26,7 +26,7 @@ const eliminarDelCarrito = (id) => {
 }
 
 const cantidadCarrito = () => {
-  return carrito.reduce((acc, prod) => acc + prod.cantidad, 0 )
+  return carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
 }
 
 const vaciarCarrito = () =>{
@@ -55,15 +55,8 @@ const vaciarCarrito = () =>{
         <ItemDetailContainer/>
       </Route>
 
-      {/* <Route exact path="/nosotros">
-        <h2 className="text-center text-danger my-2">Nosotros</h2>
-      </Route>
-
-      <Route exact path="/contacto">
-        <h2 className="text-center text-danger my-2">Contacto</h2>
-      </Route> */}
-
       <Route exact path="/cart">
+        <h1>Carrito</h1>
         <CartWidget/>
       </Route>
 
