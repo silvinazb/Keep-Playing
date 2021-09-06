@@ -5,64 +5,47 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import { CartCheckout } from './components/CartCheckout/CartCheckout';
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
-import { cart } from './context/cart';
-import { useState } from 'react';
+import { CartProvider } from './context/cart';
+import { UIContextProvider } from './context/UIContext';
 
 
 
 function App() {
 
-  const [carrito, setCarrito] = useState([])
-
-  const agregarAlCarrito = (prod) => {
-    setCarrito([
-      ...carrito,
-      prod
-    ])
-  }
-
-const eliminarDelCarrito = (id) => {
-  setCarrito(carrito.filter(prod => prod.id !== id))
-}
-
-const cantidadCarrito = () => {
-  return carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
-}
-
-const vaciarCarrito = () =>{
-  return setCarrito ([])
-}
-
   return (
 
     <>
-    <cart.Provider value={{carrito, agregarAlCarrito, eliminarDelCarrito, cantidadCarrito, vaciarCarrito}} >
+    <UIContextProvider>
+    <CartProvider>
       <BrowserRouter>
 
-      <NavBar/>
+        <NavBar/>
 
-      <Switch>
+        <Switch>
 
-      <Route exact path="/">
-        <ItemListContainer/>
-      </Route>
-    
-      <Route exact path="/category/:filtro">
-        <ItemListContainer/>
-      </Route>
+          <Route exact path="/">
+            <ItemListContainer/>
+          </Route>
+        
+          <Route exact path="/category/:filtro">
+            <ItemListContainer/>
+          </Route>
 
-      <Route exact path="/detail/:caract">
-        <ItemDetailContainer/>
-      </Route>
+          <Route exact path="/detail/:caract">
+            <ItemDetailContainer/>
+          </Route>
 
-      <Route exact path="/cart">
-        <CartCheckout/>
-      </Route>
+          <Route exact path="/cart">
+            <CartCheckout/>
+          </Route>
 
-      </Switch>
+        </Switch>
 
       </BrowserRouter>
-    </cart.Provider>
+
+    </CartProvider>
+    </UIContextProvider>
+
     </>
   );
 }

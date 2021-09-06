@@ -11,7 +11,7 @@ export const NavBar = () => {
     return (
     
     <header className="encabezado">
-            <h2><Link to={"/"}>Keep Playing </Link></h2>
+            <h2 ><Link to={"/"} >Keep Playing </Link></h2>
             <Dropdown>
                     <Dropdown.Toggle variant="dark" id="dropdown-basic">
                         Productos
