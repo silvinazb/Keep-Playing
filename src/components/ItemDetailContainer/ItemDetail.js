@@ -3,15 +3,15 @@ import {Link} from "react-router-dom";
 import { cart } from '../../context/cart';
 import { Counter } from '../Counter/Counter';
 
-export const ItemDetail = ({category, nombre, precio, img, stock}) => {
+export const ItemDetail = ({category, id, nombre, precio, img, stock}) => {
     
-    const {agregarAlCarrito} = useContext(cart)
+    const {agregarAlCarrito, IsInCart} = useContext(cart)
 
     const [cantidad, setCantidad] = useState(1)
 
     const handleAddCart = () => {
         agregarAlCarrito({
-            category, nombre, precio, img, stock, cantidad
+            category, id, nombre, precio, img, cantidad
         })
     }
 
@@ -22,15 +22,16 @@ export const ItemDetail = ({category, nombre, precio, img, stock}) => {
             </div>
 
             <div className="card col-3 mx-auto text-center text-dark">
-            <h3>{nombre}</h3>
-            <p>{category}</p>
-            <img src={img} alt={nombre}/>
-            <p>${precio}</p>
-            <Counter max={stock} 
-            cantidad={cantidad} 
-            setCantidad={setCantidad} 
-            agregar={handleAddCart}/>
-            <Link to={`/category/${category}`}>Ver otros</Link>
+                <h3>{nombre}</h3>
+                <p>{category}</p>
+                <img src={img} alt={nombre}/>
+                <p>${precio}</p>
+                <Counter max={stock} 
+                cantidad={cantidad} 
+                setCantidad={setCantidad} 
+                agregar={handleAddCart}
+                agregado={IsInCart(id)}/>
+                <Link to={`/category/${category}`}>Ver otros</Link>
             </div>
         </div>
 

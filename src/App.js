@@ -16,34 +16,33 @@ function App() {
 
     <>
     <UIContextProvider>
-    <CartProvider>
-      <BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
 
-        <NavBar/>
+          <NavBar/>
 
-        <Switch>
+          <Switch>
 
-          <Route exact path="/">
-            <ItemListContainer/>
-          </Route>
-        
-          <Route exact path="/category/:filtro">
-            <ItemListContainer/>
-          </Route>
+            <Route exact path="/">
+              <ItemListContainer/>
+            </Route>
+          
+            <Route exact path="/category/:filtro">
+              <ItemListContainer/>
+            </Route>
 
-          <Route exact path="/detail/:caract">
-            <ItemDetailContainer/>
-          </Route>
+            <Route exact path="/detail/:caract">
+              <ItemDetailContainer/>
+            </Route>
 
-          <Route exact path="/cart">
-            <CartCheckout/>
-          </Route>
+            <Route exact path="/cart">
+              <CartCheckout/>
+            </Route>
 
-        </Switch>
+          </Switch>
 
-      </BrowserRouter>
-
-    </CartProvider>
+        </BrowserRouter>
+      </CartProvider>
     </UIContextProvider>
 
     </>

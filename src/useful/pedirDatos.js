@@ -12,12 +12,7 @@ export const pedirDatos = () => {
 
         setTimeout(() =>{
             resolve(stock)
-        })
+        }, 1000)
     })
 }
 
-// setTimeout(() =>{
-//     resolve(stock)
-// }, 2000)
-// })
-// }

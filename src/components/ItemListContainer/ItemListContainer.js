@@ -1,16 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import './ItemListContainer.css'
 import {pedirDatos} from '../../useful/pedirDatos'
 import { ItemList } from './ItemList'
+import { UIContext } from '../../context/UIContext'
 
 export const ItemListContainer = () => {
 
+    const {loading, setLoading} = useContext(UIContext)
     const { filtro } = useParams ()
-
-    
     const [data, setData] = useState([]) 
-    const [loading, setLoading] = useState(false)
 
     useEffect( () => {
 

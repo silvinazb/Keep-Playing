@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-// import { BsFillTrashFill } from 'react-icons/bs'
+import { BsFillTrashFill } from 'react-icons/bs'
 import {cart} from '../../context/cart'
 
 export const CartCheckout = () =>{
@@ -15,7 +15,7 @@ export const CartCheckout = () =>{
                     <h3>{prod.nombre}</h3>
                     <p>Cantidad: {prod.cantidad}</p>
                     <p>Precio: ${prod.precio * prod.cantidad}</p>
-                    {/* <BsFillTrashFill onClick={() => eliminarDelCarrito(prod.id)}/> */}
+                    <BsFillTrashFill onClick={() => eliminarDelCarrito(prod.id)}/>
                 </div>
             ))}
             <button className="btn btn-danger " onClick={vaciarCarrito}>Vaciar carrito</button>
@@ -23,4 +23,3 @@ export const CartCheckout = () =>{
         )
 }
 
-// NO ME FUNCIONA LA FUNCION ELIMINAR DEL CARRITO

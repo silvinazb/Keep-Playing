@@ -27,8 +27,12 @@ export const CartProvider = ({children}) =>{
         setCarrito([])
     }
 
+    const IsInCart = (id) => {
+        return carrito.some(el => el.id == id)
+    }
+
     return (
-        <cart.Provider value={{carrito, vaciarCarrito, agregarAlCarrito, eliminarDelCarrito, cantidadCarrito}}>
+        <cart.Provider value={{carrito, IsInCart, vaciarCarrito, agregarAlCarrito, eliminarDelCarrito, cantidadCarrito}}>
             {children}
         </cart.Provider>
     )
