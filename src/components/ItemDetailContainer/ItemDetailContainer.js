@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { UIContext } from '../../context/UIContext'
 import { getFirestore } from '../../firebase/firebase'
-import { pedirDatos } from '../../useful/pedirDatos'
 import {ItemDetail} from './ItemDetail'
 
 

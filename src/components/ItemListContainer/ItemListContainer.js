@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import './ItemListContainer.css'
-import {pedirDatos} from '../../useful/pedirDatos'
 import { ItemList } from './ItemList'
 import { UIContext } from '../../context/UIContext'
 import { getFirestore } from '../../firebase/firebase'
@@ -16,18 +15,29 @@ export const ItemListContainer = () => {
         setLoading(true)
 
         const db = getFirestore()
-
         const productos = db.collection('Productos')
 
-        productos.get().then((response) => {
-            const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}))
-            console.log(data)
-
-            setData(data)
-        })
-        .finally( () => {
+        if (filtro){
+            const filtrado = productos.where('category', '==', filtro)
+            filtrado.get()
+                .then((response) => {
+                    const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}))
+                    setData(data)
+                })
+                .finally(() => {
                     setLoading(false)
                 })
+        } else {
+            productos.get()
+                .then((response) => {
+                    const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}))
+                    setData(data)
+            })
+                .finally( () => {
+                        setLoading(false)
+                    })
+        }
+
 
     }, [filtro, setLoading])
 

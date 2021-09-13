@@ -31,6 +31,10 @@ export const CartProvider = ({children}) =>{
         return carrito.some(el => el.id == id)
     }
 
+    // const totalCarrito = () =>{
+    //     return 
+    // }
+
     return (
         <cart.Provider value={{carrito, IsInCart, vaciarCarrito, agregarAlCarrito, eliminarDelCarrito, cantidadCarrito}}>
             {children}
