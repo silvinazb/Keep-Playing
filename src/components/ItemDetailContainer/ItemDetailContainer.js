@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { UIContext } from '../../context/UIContext'
+import { getFirestore } from '../../firebase/firebase'
 import { pedirDatos } from '../../useful/pedirDatos'
 import {ItemDetail} from './ItemDetail'
+
 
 export const ItemDetailContainer = () => {
 
@@ -12,15 +14,21 @@ export const ItemDetailContainer = () => {
 
 
 useEffect (() => {
-    setLoading(true)
-    pedirDatos()
-    .then( res =>{
-        setItem(res.find(prod => prod.id === parseInt(caract)))
-    })
 
+    setLoading(true)
+
+    const db = getFirestore()
+
+    const productos = db.collection('Productos')
+    const item = productos.doc(caract)
+
+    item.get()
+    .then((doc) => {
+        setItem( {...doc.data(), id: doc.id})
+    })
     .finally(() => {setLoading(false)})
 
-}, [caract])
+}, [caract, setLoading])
 
 
 return (

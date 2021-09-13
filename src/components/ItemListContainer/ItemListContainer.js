@@ -4,6 +4,7 @@ import './ItemListContainer.css'
 import {pedirDatos} from '../../useful/pedirDatos'
 import { ItemList } from './ItemList'
 import { UIContext } from '../../context/UIContext'
+import { getFirestore } from '../../firebase/firebase'
 
 export const ItemListContainer = () => {
 
@@ -12,22 +13,23 @@ export const ItemListContainer = () => {
     const [data, setData] = useState([]) 
 
     useEffect( () => {
-
         setLoading(true)
 
-        pedirDatos()
-            .then(res => {
-                if(filtro) {
-                    const arrayFiltrado = res.filter (prod => prod.category === filtro)
-                    setData(arrayFiltrado)
-                } else {
-                    setData(res)
-                }
-            })
-            .finally( () => {
-                setLoading(false)
-            })
-    }, [filtro])
+        const db = getFirestore()
+
+        const productos = db.collection('Productos')
+
+        productos.get().then((response) => {
+            const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}))
+            console.log(data)
+
+            setData(data)
+        })
+        .finally( () => {
+                    setLoading(false)
+                })
+
+    }, [filtro, setLoading])
 
     return (
         <div className="bienvenida">
