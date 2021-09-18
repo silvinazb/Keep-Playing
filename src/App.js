@@ -7,6 +7,7 @@ import { CartCheckout } from './components/CartCheckout/CartCheckout';
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartProvider } from './context/cart';
 import { UIContextProvider } from './context/UIContext';
+import { Checkout } from './components/Checkout/Checkout';
 
 
 
@@ -33,6 +34,10 @@ function App() {
 
             <Route exact path="/detail/:caract">
               <ItemDetailContainer/>
+            </Route>
+
+            <Route exact path="/checkout">
+              <Checkout/>
             </Route>
 
             <Route exact path="/cart">

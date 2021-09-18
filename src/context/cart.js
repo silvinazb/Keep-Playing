@@ -28,15 +28,15 @@ export const CartProvider = ({children}) =>{
     }
 
     const IsInCart = (id) => {
-        return carrito.some(el => el.id == id)
+        return carrito.some(el => el.id === id)
     }
 
-    // const totalCarrito = () =>{
-    //     return 
-    // }
+    const totalCarrito = () =>{
+        return carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
+    }
 
     return (
-        <cart.Provider value={{carrito, IsInCart, vaciarCarrito, agregarAlCarrito, eliminarDelCarrito, cantidadCarrito}}>
+        <cart.Provider value={{carrito, totalCarrito, IsInCart, vaciarCarrito, agregarAlCarrito, eliminarDelCarrito, cantidadCarrito}}>
             {children}
         </cart.Provider>
     )

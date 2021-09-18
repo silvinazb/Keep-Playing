@@ -20,7 +20,7 @@ export const Counter = ({max, cantidad, setCantidad, agregar, agregado}) =>{
         <>
         <div className="d-flex justify-content-center">
             {
-                agregado ? <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                agregado ? <Link to="/cart" className="btn btn-success">Ir al carrito</Link>
                 :
                 <div className="d-flex">
                     <button className="btn btn-danger mx-1" onClick={handleRestar} >-</button>
