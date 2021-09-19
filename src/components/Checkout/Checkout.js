@@ -1,23 +1,91 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+import { Redirect } from 'react-router'
+import Swal from 'sweetalert2'
 import { cart } from '../../context/cart'
 import { generarOrden } from '../../firebase/generarOrden'
 
 
 export const Checkout = () => {
 
-    const {carrito, totalCarrito}= useContext(cart)
+    const {carrito, totalCarrito, vaciarCarrito} = useContext(cart)
 
-    const buyer = {
-        nombre: "Silvina",
-        tel: 12345678,
-        email: "prueba@prueba.com"
+    const [values, setValues] = useState({
+        nombre: '',
+        email: '',
+        tel: 0,
+    })
+
+    const handleInputChange = (e) => {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
     }
-    
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if (values.nombre.length > 3 && values.email.length > 3 && values.tel.length > 5) {
+            generarOrden(values, carrito, totalCarrito())
+                .then( res => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Su compra fue registrada!',
+                        text: `Guarde este identificador: ${res}`,
+                        confirmButtonText: 'Gracias por comprar en KP!'
+                    })
+
+                    vaciarCarrito()
+                })
+                .catch( err => {
+                    console.log(err)
+                })
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos inválidos',
+                text: 'Revise su información'
+            })
+        }
+    }
+
+
     return (
-        <div className="text-center">
-            <h2 className=" mt-3 text-danger">Checkout</h2>
-            <button className="btn btn-success" onClick={() => generarOrden(buyer,carrito,totalCarrito())}>Generar orden</button>
+        <div>
+            <h2>Checkout</h2>
+            <hr/>
+            
+        {!carrito.length 
+            ? <Redirect to="/"/>
+            :
+        
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        value={values.nombre}
+                        onChange={handleInputChange}
+                        name="nombre"
+                        required
+                    />
+                    <input
+                        type="tel"
+                        value={values.tel}
+                        onChange={handleInputChange}
+                        name="tel"
+                        required
+                    />
+                    <input
+                        type="email"
+                        value={values.email}
+                        onChange={handleInputChange}
+                        name="email"
+                        required
+                    />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        }
         </div>
     )
 }
-
