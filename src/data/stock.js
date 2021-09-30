@@ -72,7 +72,7 @@ export const stock = [
         nombre: "Grand Theft Auto V", 
         precio: 1500,
         // descripcion: "Nada mejor",
-        img: "https://via.placeholder.com/100",
+        img: "https://firebasestorage.googleapis.com/v0/b/kepp-playing.appspot.com/o/GTAV.jpg?alt=media&token=3ceede6e-d67d-4f0c-ad16-e546b93fa64a",
         stock:5
     },
     {

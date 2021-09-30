@@ -21,7 +21,7 @@ export const ItemDetail = ({category, id, nombre, precio, img, stock}) => {
             <h2 className="text-center mb-5 my-1">Características</h2>
             </div>
 
-            <div className="card col-3 mx-auto text-center text-dark">
+            <div className="card col-3 mx-auto text-center text-dark p-4">
                 <h3>{nombre}</h3>
                 <p>{category}</p>
                 <img src={img} alt={nombre}/>
