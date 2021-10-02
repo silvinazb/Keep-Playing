@@ -33,7 +33,6 @@ useEffect (() => {
 
 return (
     <div>
-            
             {loading 
                 ? <Loader/>
                 : <h3>Características </h3> && <ItemDetail {...item}/>

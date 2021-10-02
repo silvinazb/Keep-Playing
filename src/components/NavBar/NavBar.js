@@ -12,26 +12,25 @@ export const NavBar = () => {
     
       <div>
       <header className="encabezado">
-              <h2 ><Link to={"/"} className=" text-white text-center text-decoration-none">Keep Playing </Link></h2>
-
-              <CartWidget/>
+        <h2 ><Link to={"/"} className=" text-white text-center text-decoration-none">Keep Playing </Link></h2>
+        <CartWidget/>
       </header>
-      <div>
-        <Nav className="justify-content-center bg-danger " activeKey="/home">
-          <Nav.Item>
-            <Nav.Link href="/category/Accion" className="text-white text-decoration-none hoverNav">Acción y Aventura</Nav.Link>
+      <div className="">
+        <Nav className="justify-content-center bg-danger p-2" >
+          <Nav.Item >
+            <Link to={"/category/Accion"} className="text-white text-decoration-none hoverNav px-2">Acción y Aventura |</Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/category/Deporte" className="text-white text-decoration-none hoverNav">Deporte</Nav.Link>
+            <Link to={"/category/Deporte"} className="text-white text-decoration-none hoverNav px-2">Deporte |</Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/category/RPG" className="text-white text-decoration-none hoverNav">RPG</Nav.Link>
+            <Link to={"/category/RPG"} className="text-white text-decoration-none hoverNav px-2">RPG |</Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/category/Shooter" className="text-white hoverNav">Shooter</Nav.Link>
+            <Link to={"/category/Shooter"} className="text-white text-decoration-none hoverNav px-2">Shooter |</Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/category/SurvivalHorror" className="text-white text-decoration-none hoverNav">Survival Horror</Nav.Link>
+            <Link to={"/category/SurvivalHorror"} className="text-white text-decoration-none hoverNav px-2">Survival Horror</Link>
           </Nav.Item>
         </Nav>
       </div>

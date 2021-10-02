@@ -12,10 +12,9 @@
 }
 
 .encabezado a:hover{
-    color: #ee3030
+    color: #ee3030; 
 }
 
 .hoverNav:hover {
-    background-color: rgba(0, 0, 0, 0.377);
-
+    text-shadow: 0 0 3px black;
 }
