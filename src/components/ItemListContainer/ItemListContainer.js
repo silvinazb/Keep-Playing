@@ -24,7 +24,7 @@ export const ItemListContainer = () => {
                 .then((response) => {
                     const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}))
                     setData(data)
-                })
+                }, 1000)
                 .finally(() => {
                     setLoading(false)
                 })
