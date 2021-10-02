@@ -52,14 +52,14 @@ export const Checkout = () => {
 
     return (
         <div>
-            <h2>Checkout</h2>
+            <h2 className="text-center my-2">Checkout</h2>
             <hr/>
             
         {!carrito.length 
             ? <Redirect to="/"/>
             :
         
-            <div>
+            <div className="d-flex justify-content-center">
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -67,6 +67,7 @@ export const Checkout = () => {
                         onChange={handleInputChange}
                         name="nombre"
                         required
+                        className="my-2"
                     />
                     <input
                         type="tel"
@@ -89,3 +90,4 @@ export const Checkout = () => {
         </div>
     )
 }
+

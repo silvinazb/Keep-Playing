@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { UIContext } from '../../context/UIContext'
 import { getFirestore } from '../../firebase/firebase'
 import {ItemDetail} from './ItemDetail'
+import { Loader } from '../Loader/Loader'
 
 
 export const ItemDetailContainer = () => {
@@ -32,11 +33,11 @@ useEffect (() => {
 
 return (
     <div>
-        {loading
-        ? <h2>Cargando...</h2>
-        : <h3>Características </h3> && <ItemDetail{...item}/>
-        }
-    </div>
-)
-
+            
+            {loading 
+                ? <Loader/>
+                : <h3>Características </h3> && <ItemDetail {...item}/>
+            }
+        </div>
+    )
 }

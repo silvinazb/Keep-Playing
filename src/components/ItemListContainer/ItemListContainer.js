@@ -4,6 +4,7 @@ import './ItemListContainer.css'
 import { ItemList } from './ItemList'
 import { UIContext } from '../../context/UIContext'
 import { getFirestore } from '../../firebase/firebase'
+import { Loader } from '../Loader/Loader'
 
 export const ItemListContainer = () => {
 
@@ -42,9 +43,13 @@ export const ItemListContainer = () => {
     }, [filtro, setLoading])
 
     return (
-        <div className="bienvenida">
-        <h2>Productos</h2>
-        {loading ? <h2>Cargando...</h2> : <ItemList productos={data}/>}       
-        </div>
-            )      
-            }
+            <> 
+            <h2 className="text-center my-2">Productos</h2>
+                {loading 
+                ? <Loader/> 
+                : <ItemList productos={data}/>    
+                }
+            </>
+        )
+    }
+

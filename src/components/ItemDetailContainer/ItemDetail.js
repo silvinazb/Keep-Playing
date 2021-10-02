@@ -18,20 +18,21 @@ export const ItemDetail = ({category, id, nombre, precio, img, stock}) => {
     return (
         <div>
             <div>
-            <h2 className="text-center mb-5 my-1">Características</h2>
+            <h2 className="text-center mb-4 my-1">Características</h2>
             </div>
 
             <div className="card col-3 mx-auto text-center text-dark p-4">
                 <h3>{nombre}</h3>
                 <p>{category}</p>
-                <img src={img} alt={nombre}/>
+                <img className="float-left"src={img} alt={nombre}/>
                 <p>${precio}</p>
+                {/* <p>{descripcion}</p> */}
                 <Counter max={stock} 
                 cantidad={cantidad} 
                 setCantidad={setCantidad} 
                 agregar={handleAddCart}
                 agregado={IsInCart(id)}/>
-                <Link to={`/category/${category}`}>Ver otros</Link>
+                <Link className="text-decoration-none text-success" to={`/category/${category}`}>Ver otros</Link>
             </div>
         </div>
 

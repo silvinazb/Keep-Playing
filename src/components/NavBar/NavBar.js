@@ -19,19 +19,19 @@ export const NavBar = () => {
       <div>
         <Nav className="justify-content-center bg-danger " activeKey="/home">
           <Nav.Item>
-            <Nav.Link href="/category/Accion" className="text-white text-decoration-none">Acción y Aventura</Nav.Link>
+            <Nav.Link href="/category/Accion" className="text-white text-decoration-none hoverNav">Acción y Aventura</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/category/Deporte" className="text-white text-decoration-none">Deporte</Nav.Link>
+            <Nav.Link href="/category/Deporte" className="text-white text-decoration-none hoverNav">Deporte</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/category/RPG" className="text-white text-decoration-none">RPG</Nav.Link>
+            <Nav.Link href="/category/RPG" className="text-white text-decoration-none hoverNav">RPG</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/category/Shooter" className="text-white ">Shooter</Nav.Link>
+            <Nav.Link href="/category/Shooter" className="text-white hoverNav">Shooter</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/category/SurvivalHorror" className="text-white text-decoration-none">Survival Horror</Nav.Link>
+            <Nav.Link href="/category/SurvivalHorror" className="text-white text-decoration-none hoverNav">Survival Horror</Nav.Link>
           </Nav.Item>
         </Nav>
       </div>
