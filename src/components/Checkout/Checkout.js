@@ -3,7 +3,7 @@ import { Redirect } from 'react-router'
 import Swal from 'sweetalert2'
 import { cart } from '../../context/cart'
 import { generarOrden } from '../../firebase/generarOrden'
-
+import {Form, Button} from 'react-bootstrap';
 
 export const Checkout = () => {
 
@@ -59,31 +59,37 @@ export const Checkout = () => {
             ? <Redirect to="/"/>
             :
         
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center text-center">
                 <form onSubmit={handleSubmit}>
-                    <input
+                    <Form.Label>Nombre y Apellido</Form.Label>
+                    <Form.Control
                         type="text"
+                        placeholder="Tu respuesta"
                         value={values.nombre}
                         onChange={handleInputChange}
                         name="nombre"
                         required
                         className="my-2"
                     />
-                    <input
+                    <Form.Label>Telefono</Form.Label>
+                    <Form.Control
                         type="tel"
+                        placeholder="Tu respuesta"
                         value={values.tel}
                         onChange={handleInputChange}
                         name="tel"
                         required
                     />
-                    <input
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
                         type="email"
+                        placeholder="ejemplo@gmail.com"
                         value={values.email}
                         onChange={handleInputChange}
                         name="email"
                         required
                     />
-                    <button type="submit">Submit</button>
+                    <Button className="mt-3" variant="danger" type="submit">Enviar</Button>
                 </form>
             </div>
         }
