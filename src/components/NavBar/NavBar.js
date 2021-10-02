@@ -16,7 +16,7 @@ export const NavBar = () => {
         <CartWidget/>
       </header>
       <div className="">
-        <Nav className="justify-content-center bg-danger p-2" >
+        <Nav className="justify-content-center bg-danger p-2">
           <Nav.Item >
             <Link to={"/category/Accion"} className="text-white text-decoration-none hoverNav px-2">Acción y Aventura |</Link>
           </Nav.Item>
